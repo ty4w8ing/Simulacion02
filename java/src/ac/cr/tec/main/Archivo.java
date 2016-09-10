@@ -16,7 +16,7 @@ public class Archivo {
             archivo = new File(nombre);
             if (!archivo.exists()) archivo.createNewFile();
 
-            fw = new FileWriter(archivo.getAbsoluteFile(), true);
+            fw = new FileWriter(archivo.getAbsoluteFile(), false);
             bw = new BufferedWriter(fw);
 
         } catch (IOException e) {
@@ -27,7 +27,7 @@ public class Archivo {
 
     public void escribir(Double texto){
         try {
-            bw.write(texto.toString()+'\n');
+            bw.write(String.format("%.10f", texto)+'\n');
         } catch (IOException e) {
             e.printStackTrace();
         }
